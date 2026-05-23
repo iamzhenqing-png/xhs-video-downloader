@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>小红书视频链接提取</title>
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      body {
+        width: 420px;
+        min-height: 200px;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        background: #1a1a2e;
+        color: #e0e0e0;
+      }
+      .container { padding: 16px; }
+      h1 {
+        font-size: 16px;
+        color: #ff2442;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+      }
+      .status {
+        padding: 8px 12px;
+        border-radius: 8px;
+        font-size: 13px;
+        margin-bottom: 12px;
+      }
+      .status.loading { background: #1e3a5f; color: #7eb8f0; }
+      .status.error { background: #3a1e1e; color: #f07e7e; }
+      .status.success { background: #1e3a2f; color: #7ef0a8; }
+
+      .link-item {
+        background: #16213e;
+        border: 1px solid #2a2a4a;
+        border-radius: 8px;
+        padding: 10px 12px;
+        margin-bottom: 8px;
+      }
+      .link-meta {
+        font-size: 11px;
+        color: #888;
+        margin-bottom: 4px;
+      }
+      .link-url {
+        font-size: 12px;
+        color: #a8d8f0;
+        word-break: break-all;
+        line-height: 1.4;
+        margin-bottom: 8px;
+        user-select: all;
+      }
+      .btn-row { display: flex; gap: 6px; }
+      .btn {
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 12px;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .btn-copy {
+        background: #ff2442;
+        color: white;
+      }
+      .btn-copy:hover { background: #e61e3a; }
+      .btn-copy.copied { background: #10b981; }
+      .btn-open {
+        background: #2a2a4a;
+        color: #ccc;
+      }
+      .btn-open:hover { background: #3a3a5a; }
+      .empty {
+        text-align: center;
+        padding: 30px 0;
+        color: #666;
+        font-size: 13px;
+      }
+      .hidden { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>🎬 小红书视频链接提取</h1>
+      <div id="status" class="status loading">正在扫描页面...</div>
+      <div id="links"></div>
+      <div id="empty" class="empty hidden">未检测到视频链接，请确认已打开小红书笔记页面</div>
+    </div>
+    <script src="popup.js"></script>
+  </body>
+</html>
